@@ -10,7 +10,7 @@
 	<div align="center">
 		<div sec:authorize="isAuthenticated()">
 			Welcome <b><span sec:authentication="name">Username</span></b> &nbsp;
-			<i><span sec:authentication="principal. authorities">Roles</span></i>
+			<i><span sec:authentication="principal.authorities">Roles</span></i>
 		</div>
 
 		<form th:action="@{/logout}" method="post">
@@ -34,16 +34,16 @@
 					<th>Made in</th>
 					<th>Price</th>
 
-					<th sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">Actions></th>
+					<th sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="product :${listProducts}">
+				<tr th:each="product : ${listProducts}">
 					<td th:text=${product.id}>Product ID</td>
-					<td th:text=${product.name}>Product ID</td>
-					<td th:text=${product.brand}>Product ID</td>
-					<td th:text=${product.madein}>Product ID</td>
-					<td th:text=${product.price}>Product ID</td>
+					<td th:text=${product.name}>Product Name</td>
+					<td th:text=${product.brand}>Product Brand</td>
+					<td th:text=${product.madein}>Madein</td>
+					<td th:text=${product.price}>Product Price</td>
 
 					<td sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')"><a
 						th:href="@{'/edit/' + ${product.id}}">Edit</a>
