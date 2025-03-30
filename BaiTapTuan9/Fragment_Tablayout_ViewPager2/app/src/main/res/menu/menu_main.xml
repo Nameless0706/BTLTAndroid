@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuSearch"
+        android:title="Search" />
+    <item
+        android:id="@+id/menuNewGroup"
+        android:title="New Group" />
+    <item
+        android:id="@+id/menuBroadcast"
+        android:title="Broadcast" />
+    <item
+        android:id="@+id/menuWeb"
+        android:title="Web" />
+    <item
+        android:id="@+id/menuMessage"
+        android:title="Message" />
+    <item
+        android:id="@+id/menuSetting"
+        android:title="Setting" />
+</menu>
