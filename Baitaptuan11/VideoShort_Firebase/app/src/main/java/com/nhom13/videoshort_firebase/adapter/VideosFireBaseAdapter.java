@@ -1,5 +1,6 @@
 package com.nhom13.videoshort_firebase.adapter;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.nhom13.videoshort_firebase.R;
+import com.nhom13.videoshort_firebase.UploadActivity;
 import com.nhom13.videoshort_firebase.model.Video1Model;
 
 public class VideosFireBaseAdapter extends FirebaseRecyclerAdapter<Video1Model, VideosFireBaseAdapter.MyHolder> {
@@ -32,7 +34,7 @@ public class VideosFireBaseAdapter extends FirebaseRecyclerAdapter<Video1Model, 
         private ProgressBar videoProgressBar;
         private TextView textVideoTitle;
         private TextView textVideoDescription;
-        private ImageView imPerson, favorites, imShare, imMore;
+        private ImageView imPerson, favorites, imShare, imMore, profileImg;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -45,6 +47,8 @@ public class VideosFireBaseAdapter extends FirebaseRecyclerAdapter<Video1Model, 
             favorites = itemView.findViewById(R.id.favorites);
             imShare = itemView.findViewById(R.id.imShare);
             imMore = itemView.findViewById(R.id.imMore);
+            profileImg = itemView.findViewById(R.id.profileImg);
+
         }
     }
 
@@ -98,6 +102,14 @@ public class VideosFireBaseAdapter extends FirebaseRecyclerAdapter<Video1Model, 
                     holder.favorites.setImageResource(R.drawable.ic_favorite);
                     isFav = false;
                 }
+            }
+        });
+
+        holder.profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), UploadActivity.class);
+                view.getContext().startActivity(intent);
             }
         });
     }

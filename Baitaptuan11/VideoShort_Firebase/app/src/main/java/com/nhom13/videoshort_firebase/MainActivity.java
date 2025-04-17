@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private VideosFireBaseAdapter videosAdapter;
 
-    ImageView profile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +39,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         viewPager2 = findViewById(R.id.vpager2);
-        profile = findViewById(R.id.profileImg);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), UploadActivity.class);
-                startActivity(intent);
-            }
-        });
+
         getVideos();
     }
 
